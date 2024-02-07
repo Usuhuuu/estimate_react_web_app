@@ -879,4 +879,4 @@ attempted value: ${o}
         style-src 'self' 'unsafe-inline';
         img-src 'self' https://hiwoorizip.shop;
         media-src https://*.my-s3-endpoint.com;
-      `})}),u.jsx(m.Suspense,{fallback:u.jsx("p",{children:"Loading..."}),children:u.jsx(uO,{children:u.jsxs(ec,{children:[u.jsx(ke,{path:"/auth/*",element:u.jsx(TD,{})}),u.jsx(ke,{path:"/user/*",element:u.jsx(FD,{})}),u.jsx(ke,{path:"/",element:u.jsx(h3,{})}),u.jsx(ke,{path:"/*",element:u.jsx(U8,{})}),u.jsx(ke,{element:u.jsx(AD,{})})]})})})]})}const H8=Xf.createRoot(document.getElementById("root"));H8.render(u.jsx(tt.StrictMode,{children:u.jsx(kx,{children:u.jsx(B8,{})})}))});export default W8();
+      `})}),u.jsx(m.Suspense,{fallback:u.jsx("p",{children:"Loading..."}),children:u.jsx(uO,{children:u.jsxs(ec,{children:[u.jsx(ke,{path:"/auth/*",element:u.jsx(TD,{})}),u.jsx(ke,{path:"/user/*",element:u.jsx(FD,{})}),u.jsx(ke,{path:"/",element:u.jsx(h3,{})}),u.jsx(ke,{path:"/*",element:u.jsx(U8,{})}),u.jsx(ke,{path:"/",element:u.jsx(AD,{})})]})})})]})}const H8=Xf.createRoot(document.getElementById("root"));H8.render(u.jsx(tt.StrictMode,{children:u.jsx(kx,{children:u.jsx(B8,{})})}))});export default W8();
