@@ -10,7 +10,5 @@ export default defineConfig({
       rewrites: [{ from: /\//, to: '/404.html' }],
     },
   },
-  esbuild: {
-    jsxInject: `import React from 'react';`,
-  },
+ 
 });
