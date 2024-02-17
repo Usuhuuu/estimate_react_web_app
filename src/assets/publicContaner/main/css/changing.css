@@ -1,0 +1,76 @@
+.formContainer form{
+    background-color: #fff;
+    width: 60%;
+    margin: 5% 20%;
+    border-radius: 10px;
+    border: 10px solid #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 15%;
+}
+.allContainers{
+    padding: 20px;
+}
+.optionContainers{
+    padding: 10px;
+}
+.optionContainers input{
+    position: relative;
+    float: left;
+}
+.radioLabel{
+    position: relative;
+    padding-left: 2px; 
+    cursor: pointer;
+}
+input[type="radio"]  {
+    width: 15px;
+    height: 15px;
+}
+input[type="radio"] + .radioLabel::before{
+    background-color: #007bff;
+}
+[type="radio"]:checked + .radioLabel::before {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+.allContainers p{
+    color: black;
+    font-weight: 100;
+    font-size: 24px;
+}
+.optionContainers label{
+    font-size: 20px;
+    font-weight: 100;
+}
+.nextBtns{
+    padding-right: 100%;
+    padding: 10px;
+    border: 0.5px solid #0056b3;
+    border-radius: 10px;
+    width: 63%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #0056b3;
+    font-size: 20px;
+    color: #fff;
+}
+.btns .submitBtns{
+    width: 35%;
+    font-size: 20px;
+    padding: 10px;
+    margin-right: 2%;
+    border-radius: 10px;
+    border: rgba(100, 100, 111, 0.2);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: rgba(100, 100, 111, 0.2);
+}
+@media(max-width:640px) {
+    .formContainer form{
+        background-color: #fff;
+        width: 80%;
+        margin: 5% 10%;
+        padding: 0;
+    }
+    .formContainer{
+        padding-bottom: 10%;
+    }
+}

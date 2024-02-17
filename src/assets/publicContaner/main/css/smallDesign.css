@@ -1,0 +1,64 @@
+.bugdinTsagaan{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.imageContainers{
+    width: 60%;
+    margin: 0 20%;
+}
+.imagesss{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    margin: 0 10px;
+    transition: transform .2s;
+}
+.imageContainers img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 25rem;
+    height: 20rem;
+    padding: 10px;
+    border-radius: 20px;
+}
+.imageContainers p{
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+.imageChange{
+    display: inline-flex;
+    padding: 25px;
+}
+.imagesss:hover{
+    transform: scale(1.1);
+}
+.image-link{
+    text-decoration: none;
+}
+@media (max-width: 900px){
+    .imageContainers{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: 0 1%;
+    }
+    .imageContainers img {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        width: 25rem;
+        height: 10rem;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .imageChange {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+    .imagesss {
+        margin: 10px 0; /* Add space between images on smaller screens */
+    }
+}

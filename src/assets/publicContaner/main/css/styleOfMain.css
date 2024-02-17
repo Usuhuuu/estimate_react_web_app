@@ -1,0 +1,141 @@
+body{
+  border-top-left-radius: 25px;
+  
+}
+.bodyQuestions{
+  max-width: 100%;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  height: auto;
+}
+.allThings{
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  background-color: #0056b3;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+.allThings p {
+  padding: 20px 30px;
+  margin-bottom: -20px;
+  
+}
+.question-container:nth-child(even) .question-text {
+  background-color: #f5f5f5;
+}
+.question-container {
+  width: 80%;
+  margin: 20px 50px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 1000px;
+  padding-top: 50px;
+}
+.optionQeustion,
+.questionAnswered {
+  font-size: 20px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  max-width: 40%;
+  min-width: 10%;
+  position: sticky;
+  top: 0; 
+  z-index: 100; 
+}
+
+.options-list {
+  display: block;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+.option {
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  display: block;
+  width: 30%;
+}
+.option:hover{
+  border: 1px solid #0056b3;
+}
+.answered-questions-container{
+  margin: 10px 30px;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+.answered-questions-container li {
+  list-style-type: none;
+}
+.answers{
+  border: 1px solid #ddd;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 15%;
+  padding: 10px;
+  position: relative;
+  float: right;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+
+.input-text {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.chat-list li{
+  margin-left: -20px;
+  padding-top: 100px;
+  transition: padding-bottom 0.3s ease;
+}
+.answerButton{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+  top: 55px;
+  float: right;
+  right: -15%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+.btnButton {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 100px;
+}
+.changeB{
+  color: #fff;
+}
+.district-option{
+  padding-left: 50px;
+
+}
+.district-option .option{
+  color: gray;
+}
+
+
+

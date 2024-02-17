@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+/* Adjustments for input fields */
+input[type="phoneNumber"],
+input[type="name"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #000; /* Set text color to black */
+}
+
+/* Adjustments for focus state on input fields */
+input[type="phoneNumber"]:focus,
+input[type="name"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #8777d6;
+  box-shadow: 0 0 5px rgba(135, 119, 214, 0.5);
+}
+.gender {
+  display: flex;
+  margin-top: 5px;
+}
+
+.gender button {
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.Container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+}
+/* Other styles remain unchanged */
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.보기 {
+  border: none;
+  background-color: #fff;
+  font-weight: lighter;
+  position: relative;
+  float: right;
+  font-size: 16px;
+  
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: gray;
+  margin: 10px 0;
+}
+
+.form-group button[type="submit"] {
+  background-color: #8777d6;
+  color: #fff;
+  border: none;
+  padding: 15px ;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group button[type="submit"]:hover {
+  background-color: #755dc9;
+}
+
+.App button[type="button"] {
+  background-color: #8777d6;
+  color: #fff;
+  border: none;
+  padding: 4px ;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 5px 70px;
+  width: 40%;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+/* select {
+  position: relative;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 300px;
+  padding: 10px 30px 5px 10px; 
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, 
+  linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  color: black;
+  border-radius: 0.2em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  height: 150px;
+} */
+.selected {
+  background-color: #ffeeba; /* Set your desired background color for selected items */
+}
+.pro {
+  padding-bottom: 20px;
+  margin-left: -15px;
+}
+:root {
+  --arrow-bg: #755dc9;;
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: black;
+  --select-bg: rgba(255, 255, 255, 0.2);
+}
+* {
+  box-sizing: border-box;
+}
+
+.phoneNumber, .phoneNumberButton, .phoneNumberButtonFirst {
+  color: #fff;
+  background-color: gray;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  position: relative;
+  right: 0;
+  font-size: px;
+}
+.phoneNumber:hover {
+  color: #755dc9;
+}
+.verificationNumber-container {
+  width: 90%;
+}
+input[type="verificationNumber"]{
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #000;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.phoneNumberButton:hover {
+  background-color: #755dc9;
+}
+.phoneNumberButtonFirst:hover{
+  background-color: #755dc9;
+}
+.phoneNumberFirst{
+  text-align: left;
+  margin-top: -15px;
+  padding-bottom: 15px;
+}
+#proJobs{
+  width: 90%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+#city{
+  width: 90%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
