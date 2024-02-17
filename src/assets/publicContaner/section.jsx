@@ -34,7 +34,6 @@ const Sect = () => {
         ))}
       </div>
       <div className="entertainmentThings"></div>
-      <hr className="herrgui"></hr>
     </section>
   );
 };

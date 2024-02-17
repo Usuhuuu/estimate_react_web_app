@@ -44,44 +44,49 @@ nav img{
     font-size: 28px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 920px) {
     .menu-btn span {
         display: block;
         font-size: 28px;
     }
     .navContainer {
         position: fixed;
-        top: 90px;
+        top: 80px;
         padding: 0;
         background: rgb(255, 255, 255);
         transition: all 0.3s ease-in-out;
         transform: translateX(-100%);
-        z-index: 999; 
+        z-index: 1; 
         flex-direction: column;
         text-align: center;
-        height: 80%;
+        height: 74%;
         border-bottom: 0.3px solid gray;
         border-right: 0.3px solid gray;
         border-radius: 3px;
+        width: 60% !important;
+    }
+    .logins{
+        position: fixed;
+        width: 100%;
+    }
+    .loginContainer{
+        display: inline-table;
+        align-items: center;
+        background-color: #0C59B6;
+        width: 85%;
     }
     .navContainer ul {
         flex-direction: column;
-        margin-top: 30%;
         padding: 0;
-        padding-bottom: 0;
-        height: 18%;
     }
     .navContainer li a {
-        font-size: 24px;
-        text-align: center;
         padding: 15px 0;
-        text-decoration: none;
-        color: #333;
         display: block;
         transition: color 0.3s ease; /* Smooth color transition on hover */
     }
     .navContainer.active {
         transform: translateX(0);
+        z-index: 1;
     }
     .navContainer:after {
         content: "";
@@ -91,10 +96,10 @@ nav img{
         height: 100%;
         width: 0;
         background-color: gray;
-        z-index: -1; 
+        z-index: 0; 
     }
     .navContainer.active:after {
-        width: 90%; 
+        width: 70%; 
     }
     .menu-btn span {
         width: auto;
@@ -111,55 +116,38 @@ nav img{
         position: fixed;
         top: 5.5vh;
         right: 0;
-      }
-    .loginContainer{
-        display: inline-table;
-        align-items: center;
-        width: 85%;
     }
-    .loginContainer .Engiin{
+    .LoginContainer{
         width: 100%;
     }
-    .loginContainer
-    .login {
-        position: fixed;
-        margin: 30% 0 0 0;
-        left: 0;
+    #proUserDesign{
         width: 100%;
-        border-radius: 0;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        justify-content: center;
+    }
+    #Engiin{
+        
+    }
+    .LoginContainer {
+        flex-direction: row;
         align-items: center;
+        width: 100%;
     }
     .dropdown-content {
-        display: none;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle box shadow */
-        border-radius: 8px; 
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        top: 100%;
-        left: 100%;
-        box-sizing: border-box;
+        z-index: -1;
     }
     .navContainer li:hover .dropdown-content {
-       display: none;
-    }
-    .service p{
-        position: relative;
-        text-align: center;
+        left: 0;
+        top: 0;
+        z-index: -1 !important;
+        display: none;
     }
     .homeServiceContainer 
     {
         white-space: normal; /* Allow services to wrap on smaller screens */
     }
-
-    .homeService {
-        min-width: auto; /* Allow services to take their natural width */
+    .homeService{
+        flex-wrap: wrap;
     }
-}
-@media  (max-width: 420px){
     .searchContainer {
         display: flex;
         align-items: center; /* Vertically center the content */
@@ -187,7 +175,7 @@ nav img{
         border-top-right-radius: 3px;
         width: 60px;
         
-    }
+    } 
 }
 /* Dropdown styles */
 .dropdown-content {
@@ -200,18 +188,18 @@ nav img{
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    width: 80px;
-    height: 120px; 
     top: 100%;
+    width: auto;
+    height: auto;
     box-sizing: border-box;
     display: none;
 }
+
 .navContainer li:hover .dropdown-content {
-    display: block;
-    flex-direction: column;
+    display: flex;
+    position: absolute;
     opacity: 1;
     transform: translateY(0);
-    position: absolute;
 }
 .dropdown-content ul {
     flex-direction: column;
@@ -243,30 +231,30 @@ nav img{
    
 }
 /* Navigation links underline effect */
-@media ( min-width:900px) and ( max-width:1350px) {
-    .navContainer {
-        display: inline;
-        width: 100%;
-    }
-    .navContainer ul li a{
-        font-size: 26px;
-    }
+@media ( max-width: 1350px) {
     .navMenu {
-        margin-top: 17px;
-        float: left; 
-        font-size: 27px;
+        margin-top: 21px !important;
+        position: relative;
+        float: left;
+        font-size: 21px !important;
         text-decoration: none;
         color: black;
-        padding: 12px;  
+        padding: 5px !important;
+        justify-content: space-between;
+        line-height: 2;
     }
+    #proUserDesign{
+        margin-top: 24px !important;
+        font-size: 21px !important;
+    }
+   
 }
-
 
 .navContainer {
     display: inline;
     width: 100%;
+    align-items: center;
 }
-
 .navContainer.active {
     width: 100%; 
 }
@@ -279,13 +267,14 @@ nav img{
     display: inline;
 }
 .navMenu {
-    margin-top: 17px;
+    margin-top: 21px;
     position: relative;
     float: left; 
     font-size: 27px;
     text-decoration: none;
     color: black;
-    padding: 12px;  
+    padding: 10px;
+    position: relative;
 }
 .navContainer a::before {
     content: "";
@@ -311,7 +300,6 @@ nav img{
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
 .navMenu:hover::before {
     background-color: #0C59B6; /* Add a background color on hover */
     transform: scaleX(1); /* Expand the underline on hover */
@@ -422,7 +410,7 @@ nav img{
     font-size: 27px;
     text-decoration: none;
     padding: 12px;  
-    margin: 20px 5px;
+    margin-top: 20px;
     font-size: 28px;
     font-weight: bold;
     text-decoration: none;
@@ -489,7 +477,6 @@ p {
     padding-bottom: 10px;
     font-weight: lighter;
     color: gray;
-    
 }
 
 .homeServiceContainer {
@@ -502,28 +489,26 @@ p {
 
 .homeService {
     display: flex;
+    flex-direction: row; 
     flex-wrap: wrap;
     padding: 20px;
     align-items: center;
     justify-content: center; 
     overflow-x: auto; 
     margin-top: 20px; 
-    margin: 0 10%;
+    margin: 0 5%;
 }
 
 .service {
-    flex: 0 0 auto;
-    margin: 0 20px;
+    margin: 0 10px;
     text-align: center;
     transition: transform .2s;
     transform-origin: center center;
-
 }
 
 .service img {
     width: 250px; /* Set a fixed width for the images */
     height: 250px; /* Set a fixed height for the images */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
     border-radius: 8px; /* Add rounded corners to images */
     box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.1); 
     transition: transform .2s;
