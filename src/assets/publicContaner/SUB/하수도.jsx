@@ -9,7 +9,7 @@ import Cookie from "js-cookie";
 import Footer from "../footer";
 import Select from "react-select";
 
-const urlApi = "http://localhost:3001";
+const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
 const localhost = "localhost";
 

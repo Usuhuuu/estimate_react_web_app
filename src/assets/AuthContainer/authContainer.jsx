@@ -8,7 +8,7 @@ import Dashboard from "./dashboard";
 import axios from "axios";
 import ProSignup from "./proSignup";
 
-const urlApi = "http://localhost:3001";
+const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
 const AuthContainer = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

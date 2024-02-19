@@ -7,7 +7,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import axios from "axios";
 
-const urlApi = "http://localhost:3001";
+const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
 const NavigationBar = () => {
   const [loggedInStatus, setLoggedInStatus] = useState();
