@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../CSS/signup.css";
+import Loading from "../loader/loading";
+
 const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
 const Signup = () => {
@@ -25,10 +27,10 @@ const Signup = () => {
   const [phoneNumberDisabled, setPhoneNumberDisabled] = useState(false);
   const [sendSMSButtonDisabled, setSendSMSButtonDisabled] = useState(false);
   const [verificationCompleted, setVerificationCompleted] = useState(false);
+  const [isloading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, checked, type, value } = e.target;
-
     if (type === "checkbox") {
       if (name === "check-all") {
         setFormData({
@@ -76,7 +78,6 @@ const Signup = () => {
     });
 
     return () => {
-      // Cleanup (remove event listeners, if necessary)
       if (allCheckbox) {
         allCheckbox.removeEventListener("change", () => {});
       }
@@ -85,27 +86,23 @@ const Signup = () => {
       });
     };
   }, []);
-
   const startTimer = () => {
     const intervalId = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
-
-    // Clear the interval when the timer reaches 0
     setTimeout(() => {
       clearInterval(intervalId);
     }, timer * 1000);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (formData.password !== formData.confirm_password) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
     try {
       if (verificationCompleted) {
+        isloading(true);
         const response = await axios.post(`${urlApi}/auth/signup`, formData);
         setSuccessMessage(response.data.message);
         setErrorMessage("");
@@ -118,24 +115,25 @@ const Signup = () => {
       alert("Failed to sign up. Please try again. sda");
     }
   };
-
+  if (isloading) {
+    return (
+      <>
+        <Loading />;
+      </>
+    );
+  }
   const handleSendSMS = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-
-    // Send a request to your backend to generate and send the verification code
+    e.preventDefault();
     try {
       const response = await axios.post(`${urlApi}/auth/prosignup/sendSMS`, {
         phoneNumber: formData.phoneNumber,
       });
-
       if (response.data.success) {
-        // Verification code sent successfully
         setErrorMessage("");
         setTimer(600);
         startTimer();
         setShowVerificationInput(true);
       } else {
-        // Failed to send verification code
         alert("Failed to send verification code. Please try again.");
       }
     } catch (error) {
@@ -149,16 +147,13 @@ const Signup = () => {
         phoneNumber: formData.phoneNumber,
         verificationNumber,
       });
-
       if (response.data.success) {
-        // Verification successful, proceed with user registration
         setPhoneNumberDisabled(true);
         setSendSMSButtonDisabled(true);
         setVerificationCompleted(true);
         alert("인증완료");
         return true;
       } else {
-        // Verification failed
         setErrorMessage("Invalid verification code");
         alert(errorMessage);
         return false;
