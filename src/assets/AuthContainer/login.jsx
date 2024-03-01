@@ -20,7 +20,7 @@ function LoginPage({ handleLogin }) {
       setLoading(true);
       const response = await axios.post(
         `${urlApi}/auth/login`,
-        { email, password },
+        { email, password, mobile: false },
         { withCredentials: true }
       );
       if (response.status === 200) {
