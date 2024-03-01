@@ -247,17 +247,19 @@ const NavigationBar = () => {
             </li>  */}
             {loggedInStatus === true ? (
               <li>
-                <Link to="/user/usersettings" className="navMenu" id="Engiin">
-                  마이페이지
-                </Link>
-                <Link
-                  to="#"
-                  className="navMenu"
-                  onClick={handleLogoutClick}
-                  id="Engiin"
-                >
-                  로그아웃
-                </Link>
+                <div className="LoginContainer">
+                  <Link to="/user/usersettings" className="navMenu" id="Engiin">
+                    마이페이지
+                  </Link>
+                  <Link
+                    to="#"
+                    className="navMenu"
+                    onClick={handleLogoutClick}
+                    id="Engiin"
+                  >
+                    로그아웃
+                  </Link>
+                </div>
               </li>
             ) : (
               <li>
