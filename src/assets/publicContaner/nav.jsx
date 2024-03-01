@@ -175,14 +175,14 @@ const NavigationBar = () => {
                     : "dropdown-content"
                 }
               >
-                <ul className="hudsda">
+                {/* <ul className="hudsda">
                   <li>
                     <Link to="/interior/kitchen">주방</Link>
                   </li>
                   <li>
                     <Link to="/interior/floorAndWall">도배</Link>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </li>
             <li>
@@ -202,7 +202,7 @@ const NavigationBar = () => {
                     : "dropdown-content"
                 }
               >
-                <ul>
+                {/* <ul>
                   <li>
                     <Link to="/repair/waterwork">상수도</Link>
                   </li>
@@ -212,7 +212,7 @@ const NavigationBar = () => {
                   <li>
                     <Link to="/repair/bathroom">욕실</Link>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </li>
             <li>
