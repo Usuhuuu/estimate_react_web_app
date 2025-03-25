@@ -19,7 +19,6 @@ const convertQuestionIdsToText = (questionIdsString) => {
     console.error("Invalid questionIdsString:", questionIdsString);
     return "Invalid questionIdsString";
   }
-
   const questionIds = questionIdsString.split(",").map((id) => id.trim());
   const questionTexts = questionIds.map(getQuestionTextById).filter(Boolean);
   return questionTexts.join(", ");
