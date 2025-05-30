@@ -33,7 +33,6 @@ const Sect = () => {
           </div>
         ))}
       </div>
-      <div className="entertainmentThings"></div>
     </section>
   );
 };

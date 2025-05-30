@@ -1,12 +1,12 @@
-import React, { Suspense} from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from './assets/publicContaner/home';
-import AuthContainer from './assets/AuthContainer/authContainer';
-import NotFound from './assets/notfound';
-import AdminContainer from './assets/userAndAdmin/userAndAdminContainer';
-import PublicContainer from './assets/publicContaner/publicContainer';
-import './assets/CSS/style.css';
+import Home from "./components/publicContaner/home";
+import AuthContainer from "./components/AuthContainer/authContainer";
+import NotFound from "./components/notfound";
+import AdminContainer from "./components/userAndAdmin/userAndAdminContainer";
+import PublicContainer from "./components/publicContaner/publicContainer";
+import "./components/CSS/style.css";
 
 function App() {
   return (

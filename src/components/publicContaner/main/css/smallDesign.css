@@ -4,8 +4,10 @@
     height: 100%;
 }
 .imageContainers{
-    width: 60%;
-    margin: 0 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .imagesss{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -30,7 +32,6 @@
 }
 .imageChange{
     display: inline-flex;
-    padding: 25px;
 }
 .imagesss:hover{
     transform: scale(1.1);

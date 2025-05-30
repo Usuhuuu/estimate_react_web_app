@@ -10,13 +10,13 @@ body {
 }
 nav{
     display: inline-flex;
-    width: 100vw;
     background: rgb(255, 255, 255);
     text-align: center;
     top: 0; 
-    z-index: 1000;
+    z-index: 1;
     position: sticky;
-    height: auto;    
+    height: auto;   
+    width: 100%;
 }
 nav button{
     position: relative;
