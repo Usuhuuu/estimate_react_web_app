@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../CSS/style.css";
+import { publicPath } from "../../App";
 
 const Sect = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Array of slide image paths
   const slides = [
-    "/sliderPhoto/slider2.jpg",
-    "/sliderPhoto/slider1.png",
-    "/sliderPhoto/slider3.jpg",
+    `${publicPath("sliderPhoto/slider2.jpg")}`,
+    `${publicPath("sliderPhoto/slider1.png")}`,
+    `${publicPath("sliderPhoto/slider3.jpg")}`,
   ];
   useEffect(() => {
     const interval = setInterval(() => {

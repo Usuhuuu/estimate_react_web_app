@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/newDesign.css";
 import Artic from "../article";
 import Footer from "../footer";
+import { publicPath } from "../../../App";
 
 const Repair = () => {
   return (
@@ -12,20 +13,20 @@ const Repair = () => {
         <div className="imageContainer">
           <div className="imageChang">
             <div className="zurags">
-              <Link to="/repair/waterwork" className="image-link">
-                <img src="/Photo/상수도.jpg" alt="" />
+              <Link to="/public/repair/waterwork" className="image-link">
+                <img src={publicPath("Photo/상수도.jpg")} alt="" />
                 <p>상수도</p>
               </Link>
             </div>
             <div className="zurags">
-              <Link to="/repair/sewer" className="image-link">
-                <img src="/Photo/sewer.jpg" alt="" />
+              <Link to="/public/repair/sewer" className="image-link">
+                <img src={publicPath("Photo/sewer.jpg")} alt="" />
                 <p>하수도</p>
               </Link>
             </div>
             <div className="zurags">
-              <Link to="/repair/bathroom" className="image-link">
-                <img src="/Photo/욕실.jpg" alt="" />
+              <Link to="/public/repair/bathroom" className="image-link">
+                <img src={publicPath("Photo/욕실.jpg")} alt="" />
                 <p>욕실</p>
               </Link>
             </div>

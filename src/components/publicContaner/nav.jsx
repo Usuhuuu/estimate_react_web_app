@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import axios from "axios";
 import RotateLoader from "react-spinners/RotateLoader";
+import { publicPath } from "../../App";
 
 const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
@@ -17,8 +18,6 @@ const NavigationBar = () => {
     cleaning: false,
     waterproof: false,
   });
-  const [searchValue, setSearchValue] = useState("");
-  const [errors, setErrors] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -66,7 +65,6 @@ const NavigationBar = () => {
         localStorage.removeItem("authToken");
         setLoggedInStatus(false);
       } else {
-        setErrors("Error setting up the request");
         setLoggedInStatus(false);
       }
     } finally {
@@ -76,33 +74,9 @@ const NavigationBar = () => {
   useEffect(() => {
     checkAuthentication();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
   }, []);
-  if (loading) {
-    return (
-      <div className="loadingOverlay">
-        <p style={{ padding: 15, font: 15 }}>잠시만 기다려 주세요</p>
-        <RotateLoader
-          loading={loading}
-          color="#0056b3"
-          size={20}
-          className="loadingAnime"
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value);
-  };
-  const handleClear = () => {
-    setSearchValue("");
   };
   const handleMouseEnter = (category) => {
     setSubNavVisibility((prevState) => ({
@@ -139,39 +113,52 @@ const NavigationBar = () => {
       alert("Error during logout. Please try again.");
     }
   };
-
   return (
-    <nav>
-      <button className="Logobutton">
-        <Link to="/">
-          <img src="/logo2.png" alt="Logo" />
-        </Link>
-      </button>
-      <div className={`navContainer ${isMenuOpen ? "active" : ""}`}>
-        <ul>
-          <li>
-            <Link to="/interior" className="navMenu">
-              종합인테리어
+    <>
+      {loading ? (
+        <div className="loadingOverlay">
+          <p style={{ padding: 15, font: 15 }}>잠시만 기다려 주세요</p>
+          <RotateLoader
+            loading={loading}
+            color="#0056b3"
+            size={20}
+            className="loadingAnime"
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      ) : (
+        <nav>
+          <button className="Logobutton">
+            <Link to="/">
+              <img src={publicPath("logo2.png")} alt="Logo" />
             </Link>
-          </li>
-          <li>
-            <Link
-              to="/partInterior"
-              className="navMenu"
-              onMouseEnter={() => handleMouseEnter("interior")}
-              onMouseLeave={() => handleMouseLeave("interior")}
-            >
-              부분인테리어
-              <ArrowDropDownIcon className="arrowDown" />
-            </Link>
-            <div
-              className={
-                subNavVisibility.interior
-                  ? "dropdown-content actives"
-                  : "dropdown-content"
-              }
-            >
-              {/* <ul className="hudsda">
+          </button>
+          <div className={`navContainer ${isMenuOpen ? "active" : ""}`}>
+            <ul>
+              <li>
+                <Link to="/public/interior" className="navMenu">
+                  종합인테리어
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/public/partInterior"
+                  className="navMenu"
+                  onMouseEnter={() => handleMouseEnter("interior")}
+                  onMouseLeave={() => handleMouseLeave("interior")}
+                >
+                  부분인테리어
+                  <ArrowDropDownIcon className="arrowDown" />
+                </Link>
+                <div
+                  className={
+                    subNavVisibility.interior
+                      ? "dropdown-content actives"
+                      : "dropdown-content"
+                  }
+                >
+                  {/* <ul className="hudsda">
                   <li>
                     <Link to="/interior/kitchen">주방</Link>
                   </li>
@@ -179,26 +166,26 @@ const NavigationBar = () => {
                     <Link to="/interior/floorAndWall">도배</Link>
                   </li>
                 </ul> */}
-            </div>
-          </li>
-          <li>
-            <Link
-              to="/repair"
-              className="navMenu"
-              onMouseEnter={() => handleMouseEnter("repair")}
-              onMouseLeave={() => handleMouseLeave("repair")}
-            >
-              설비/수리
-              <ArrowDropDownIcon className="arrowDown" />
-            </Link>
-            <div
-              className={
-                subNavVisibility.repair
-                  ? "dropdown-content active"
-                  : "dropdown-content"
-              }
-            >
-              {/* <ul>
+                </div>
+              </li>
+              <li>
+                <Link
+                  to="/public/repair"
+                  className="navMenu"
+                  onMouseEnter={() => handleMouseEnter("repair")}
+                  onMouseLeave={() => handleMouseLeave("repair")}
+                >
+                  설비/수리
+                  <ArrowDropDownIcon className="arrowDown" />
+                </Link>
+                <div
+                  className={
+                    subNavVisibility.repair
+                      ? "dropdown-content active"
+                      : "dropdown-content"
+                  }
+                >
+                  {/* <ul>
                   <li>
                     <Link to="/repair/waterwork">상수도</Link>
                   </li>
@@ -209,18 +196,18 @@ const NavigationBar = () => {
                     <Link to="/repair/bathroom">욕실</Link>
                   </li>
                 </ul> */}
-            </div>
-          </li>
-          <li>
-            <Link to="/checkwaterproof" className="navMenu">
-              누수/방수
-            </Link>
-          </li>
-          <li>
-            <Link to="/cleaning" className="navMenu">
-              청소
-            </Link>
-            {/* <div className={
+                </div>
+              </li>
+              <li>
+                <Link to="/public/checkwaterproof" className="navMenu">
+                  누수/방수
+                </Link>
+              </li>
+              <li>
+                <Link to="/public/cleaning" className="navMenu">
+                  청소
+                </Link>
+                {/* <div className={
                 subNavVisibility.cleaning
                   ? 'dropdown-content active'
                   : 'dropdown-content'}>
@@ -230,10 +217,10 @@ const NavigationBar = () => {
                 <li><Link to="/sub/aircondition">에어컨</Link></li>
               </ul>
             </div> */}
-          </li>
+              </li>
 
-          {/* <hr className="herrgui" /> */}
-          {/* <li>
+              {/* <hr className="herrgui" /> */}
+              {/* <li>
               <div className="search">
                 <input type="text"placeholder="Search"value={searchValue}onChange={handleSearch}/>
                 <div className="symbol">
@@ -241,52 +228,58 @@ const NavigationBar = () => {
                 </div>
                 </div>
             </li>  */}
-          {loggedInStatus === true ? (
-            <li>
-              <div className="LoginContainer">
-                <Link to="/user/usersettings" className="navMenu" id="Engiin">
-                  마이페이지
-                </Link>
-                <Link
-                  to="#"
-                  className="navMenu"
-                  onClick={handleLogoutClick}
-                  id="Engiin"
-                >
-                  로그아웃
-                </Link>
-              </div>
-            </li>
-          ) : (
-            <li>
-              <div className="LoginContainer">
-                <Link to="/auth/login" className="navMenu" id="Engiin">
-                  로그인
-                </Link>
-                <Link to="/auth/signup" className="navMenu" id="Engiin">
-                  회원가입
-                </Link>
-                <Link
-                  to="/auth/prosignup"
-                  className="proUserDesign"
-                  id="proUserDesign"
-                >
-                  협력업체
-                </Link>
-              </div>
-            </li>
-          )}
-        </ul>
-      </div>
-      <div className={`menu-toggle ${isMenuOpen ? "active" : ""}`}>
-        <label htmlFor="menu-btn" className="menu-btn" onClick={toggleMenu}>
-          <span className="material-symbols-outlined">
-            <MenuIcon />
-          </span>
-        </label>
-      </div>
-      <hr />
-    </nav>
+              {loggedInStatus === true ? (
+                <li>
+                  <div className="LoginContainer">
+                    <Link
+                      to="/user/usersettings"
+                      className="navMenu"
+                      id="Engiin"
+                    >
+                      마이페이지
+                    </Link>
+                    <Link
+                      to="#"
+                      className="navMenu"
+                      onClick={handleLogoutClick}
+                      id="Engiin"
+                    >
+                      로그아웃
+                    </Link>
+                  </div>
+                </li>
+              ) : (
+                <li>
+                  <div className="LoginContainer">
+                    <Link to="/auth/login" className="navMenu" id="Engiin">
+                      로그인
+                    </Link>
+                    <Link to="/auth/signup" className="navMenu" id="Engiin">
+                      회원가입
+                    </Link>
+                    <Link
+                      to="/auth/prosignup"
+                      className="proUserDesign"
+                      id="proUserDesign"
+                    >
+                      협력업체
+                    </Link>
+                  </div>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div className={`menu-toggle ${isMenuOpen ? "active" : ""}`}>
+            <label htmlFor="menu-btn" className="menu-btn" onClick={toggleMenu}>
+              <span className="material-symbols-outlined">
+                <MenuIcon />
+              </span>
+            </label>
+          </div>
+          <hr />
+        </nav>
+      )}
+    </>
   );
 };
 export default NavigationBar;

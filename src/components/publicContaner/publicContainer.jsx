@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes,Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Interior from "./main/interior";
 import Clean from "./main/cleaning";
 import Repair from "./main/repair";
@@ -19,30 +19,30 @@ import AgreeTerm from "./footerThings/이용약관";
 import PrivateAgree from "./footerThings/개인정보";
 
 const PublicContainer = () => {
-    return (
-        <>
-        <Routes>
-            <Route path="interior" element={<Interior />}/>  
-            <Route path="partInterior" element={<PartInterior />}/>  
+  return (
+    <>
+      <Routes>
+        <Route path="interior" element={<Interior />} />
+        <Route path="partInterior" element={<PartInterior />} />
 
-            <Route path="businessIntro" element={<Business/>} />
-            <Route path="agreeterm" element={<AgreeTerm/>} />
-            <Route path="privateagree" element={<PrivateAgree/>} />
-            
-            <Route path="repair"element={<Repair />}/>   
-            <Route path='/repair/waterwork' element={<Waterwork />}/>
-            <Route path='/repair/sewer' element={<Sewer />}/>
-            <Route path='/repair/bathroom' element={<Bathroom/>}/>
+        <Route path="businessIntro" element={<Business />} />
+        <Route path="agreeterm" element={<AgreeTerm />} />
+        <Route path="privateagree" element={<PrivateAgree />} />
 
-            <Route path="cleaning"element={<Clean />}/> 
-            <Route path="checkwaterproof"element={<CheckWaterproof />}/> 
-            <Route path="waterproof"element={<Waterproof />}/> 
-            <Route path='/waterproof/waterLeak' element={<Waterleak />}/>
+        <Route path="repair" element={<Repair />} />
+        <Route path="/repair/waterwork" element={<Waterwork />} />
+        <Route path="/repair/sewer" element={<Sewer />} />
+        <Route path="/repair/bathroom" element={<Bathroom />} />
 
-            <Route path='/interior/floorAndWall' element={<FloorAndWall />}/>
-            <Route path='/interior/kitchen' element={<Kitchen />}/>
-        </Routes>
-        </>
-    )
-}
+        <Route path="cleaning" element={<Clean />} />
+        <Route path="checkwaterproof" element={<CheckWaterproof />} />
+        <Route path="waterproof" element={<Waterproof />} />
+        <Route path="/waterproof/waterLeak" element={<Waterleak />} />
+
+        <Route path="/interior/floorAndWall" element={<FloorAndWall />} />
+        <Route path="/interior/kitchen" element={<Kitchen />} />
+      </Routes>
+    </>
+  );
+};
 export default PublicContainer;

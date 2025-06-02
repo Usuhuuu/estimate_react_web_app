@@ -5,6 +5,7 @@ import ReactModal from "react-modal";
 import "../CSS/login.css";
 import { IoLogoApple } from "react-icons/io5";
 import Loading from "../loader/loading";
+import { publicPath } from "../../App";
 const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
 function LoginPage({ handleLogin }) {
@@ -89,7 +90,10 @@ function LoginPage({ handleLogin }) {
               <div className="naverLogin">
                 <button type="button" id="naver-login">
                   <Link to="/naver-login">
-                    <img src="/Photo/naverLogin.png" alt="naver login" />
+                    <img
+                      src={publicPath("Photo/naverLogin.png")}
+                      alt="naver login"
+                    />
                   </Link>
                 </button>
               </div>
@@ -106,7 +110,10 @@ function LoginPage({ handleLogin }) {
               <div className="kakaoLogin">
                 <button type="button" id="kakao-login">
                   <Link to="/kakao-login">
-                    <img src="/Photo/kakaoLogin.png" alt="kakao login" />
+                    <img
+                      src={publicPath("Photo/kakaoLogin.png")}
+                      alt="kakao login"
+                    />
                   </Link>
                 </button>
               </div>
