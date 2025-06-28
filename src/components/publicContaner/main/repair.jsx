@@ -13,19 +13,19 @@ const Repair = () => {
         <div className="imageContainer">
           <div className="imageChang">
             <div className="zurags">
-              <Link to="/public/repair/waterwork" className="image-link">
+              <Link to="/public/estimate/waterwork" className="image-link">
                 <img src={publicPath("Photo/상수도.jpg")} alt="" />
                 <p>상수도</p>
               </Link>
             </div>
             <div className="zurags">
-              <Link to="/public/repair/sewer" className="image-link">
+              <Link to="/public/estimate/sewer" className="image-link">
                 <img src={publicPath("Photo/sewer.jpg")} alt="" />
                 <p>하수도</p>
               </Link>
             </div>
             <div className="zurags">
-              <Link to="/public/repair/bathroom" className="image-link">
+              <Link to="/public/estimate/bathroom" className="image-link">
                 <img src={publicPath("Photo/욕실.jpg")} alt="" />
                 <p>욕실</p>
               </Link>

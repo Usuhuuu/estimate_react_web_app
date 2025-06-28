@@ -1,4 +1,3 @@
-import React from "react";
 import NavigationBar from "./nav";
 import Sect from "./section";
 import Artic from "./article";

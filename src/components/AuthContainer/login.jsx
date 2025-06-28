@@ -1,47 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import ReactModal from "react-modal";
 import "../CSS/login.css";
 import { IoLogoApple } from "react-icons/io5";
-import Loading from "../loader/loading";
 import { publicPath } from "../../App";
-const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
+import { axiosRegularInstance } from "../../hooks/axiosInstance";
+import { useAuth } from "../../context/authContext";
 
-function LoginPage({ handleLogin }) {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState("");
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
-  const [isloading, setLoading] = useState(false);
+  const { loginFunction } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setLoading(true);
-      const response = await axios.post(
-        `${urlApi}/auth/login`,
-        { email, password, mobile: false },
-        { withCredentials: true }
+      const response = await axiosRegularInstance.post(
+        "/login",
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
       );
-      if (response.status === 200) {
-        localStorage.setItem("authToken", response.data.accessToken);
-        handleLogin(true);
-        setLoading(false);
-      } else {
-        setErrors("Login failed. Please check your credentials.");
-        console.log(errors);
-        alert(errors);
-        handleLogin(false);
-        setLoading(false);
+      console.log("Response:", response);
+      if (response.status === 200 && response.data.success) {
+        alert("Login successful!");
+        loginFunction();
+        window.location.href = "/";
       }
     } catch (error) {
-      setErrors("이메일이나 비밀번호가 틀렸습니다.");
-      console.error("Error:", error);
-      alert(errors);
-      setLoading(false);
-    } finally {
-      setLoading(false);
+      console.log("Error:", error);
     }
   };
 

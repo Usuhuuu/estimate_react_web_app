@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 hr{
     border-top: 1px solid rgba(200, 200, 200, 0.5);
 }

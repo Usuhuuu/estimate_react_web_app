@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/publicContaner/home";
 import AuthContainer from "./components/AuthContainer/authContainer";
 import NotFound from "./components/notfound";
-import AdminContainer from "./components/userAndAdmin/userAndAdminContainer";
+import AdminContainer from "./components/auth/userAndAdminContainer";
 import PublicContainer from "./components/publicContaner/publicContainer";
 import "./components/CSS/style.css";
 

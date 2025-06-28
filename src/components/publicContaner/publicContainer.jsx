@@ -17,18 +17,21 @@ import CheckWaterproof from "./main/checkWaterproof";
 import Business from "./footerThings/회사소개";
 import AgreeTerm from "./footerThings/이용약관";
 import PrivateAgree from "./footerThings/개인정보";
+import DynamicSubQuestions from "./estimate/dynamic_sub_questions";
 
 const PublicContainer = () => {
   return (
     <>
       <Routes>
         <Route path="interior" element={<Interior />} />
-        <Route path="partInterior" element={<PartInterior />} />
+        <Route path="part-interior" element={<PartInterior />} />
+        <Route path="estimate/:type" element={<DynamicSubQuestions />} />
 
         <Route path="businessIntro" element={<Business />} />
         <Route path="agreeterm" element={<AgreeTerm />} />
         <Route path="privateagree" element={<PrivateAgree />} />
 
+        {/* repair, cleaning ednaring mapiig hiij gants page eer bugdiin gargana */}
         <Route path="repair" element={<Repair />} />
         <Route path="/repair/waterwork" element={<Waterwork />} />
         <Route path="/repair/sewer" element={<Sewer />} />
@@ -38,9 +41,6 @@ const PublicContainer = () => {
         <Route path="checkwaterproof" element={<CheckWaterproof />} />
         <Route path="waterproof" element={<Waterproof />} />
         <Route path="/waterproof/waterLeak" element={<Waterleak />} />
-
-        <Route path="/interior/floorAndWall" element={<FloorAndWall />} />
-        <Route path="/interior/kitchen" element={<Kitchen />} />
       </Routes>
     </>
   );

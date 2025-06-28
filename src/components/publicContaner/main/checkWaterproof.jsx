@@ -16,13 +16,13 @@ const CheckWaterproof = () => {
         <div className="imageContainers">
           <div className="imageChange">
             <div className="imagesss">
-              <Link to="/waterproof" className="image-link">
+              <Link to="/public/estimate/waterproof" className="image-link">
                 <img src={publicPath("Photo/waterproof.jpg")} alt="" />
                 <p>방수</p>
               </Link>
             </div>
             <div className="imagesss">
-              <Link to="/waterproof/waterLeak" className="image-link">
+              <Link to="/public/estimate/leaking" className="image-link">
                 <img src={publicPath("Photo/leaking.jpg")} alt="" />
                 <p>누수</p>
               </Link>

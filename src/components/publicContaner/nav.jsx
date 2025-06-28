@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import axios from "axios";
 import RotateLoader from "react-spinners/RotateLoader";
 import { publicPath } from "../../App";
+import { auth_useSWR } from "../../hooks/use_swr_instance";
+import { useAuth } from "../../context/authContext";
+import { axiosInstance } from "../../hooks/axiosInstance";
 
 const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
 
@@ -18,63 +20,25 @@ const NavigationBar = () => {
     cleaning: false,
     waterproof: false,
   });
-  const [successMessage, setSuccessMessage] = useState(null);
   const [dashboardData, setDashboardData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const checkAuthentication = async () => {
-    try {
-      let authToken = localStorage.getItem("authToken");
-      if (!authToken) {
-        setLoading(true);
-        const response = await axios.post(
-          `${urlApi}/auth/refresh-token`,
-          {},
-          {
-            withCredentials: true,
-            headers: {
-              "X-Requested-With": "XMLHttpRequest",
-            },
-          }
-        );
+  const [loading, setLoading] = useState(false);
 
-        const { auth, accessToken } = response.data;
-        if (!auth || !accessToken) {
-          setLoggedInStatus(false);
-          setLoading(false);
-          return;
-        }
-        localStorage.setItem("authToken", accessToken);
-        delete axios.defaults.headers.common["Authorization"];
-        axios.defaults.headers.common["Authorization"] = `${accessToken}`;
-        setLoggedInStatus(true);
-        setSuccessMessage("Authentication successful with a new access token!");
-        setLoading(false);
-      } else {
-        const response = await axios.get(`${urlApi}/auth/dashboard`, {
-          headers: {
-            Authorization: authToken,
-          },
-        });
-        setDashboardData(response.data);
-        setSuccessMessage("Data retrieved successfully!");
-        setLoggedInStatus(true);
-        setLoading(false);
-      }
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        localStorage.removeItem("authToken");
-        setLoggedInStatus(false);
-      } else {
-        setLoggedInStatus(false);
-      }
-    } finally {
+  const { LoginStatus, logoutFunction } = useAuth();
+  const { data, error, isLoading } = auth_useSWR({
+    path: "/auth/profile-main",
+    cacheKey: "Profile_main",
+    LoginStatus: LoginStatus,
+  });
+
+  useEffect(() => {
+    if (data) {
+      setDashboardData(data);
+      setLoading(false);
+    } else if (error) {
       setLoading(false);
     }
-  };
-  useEffect(() => {
-    checkAuthentication();
-    setLoading(true);
-  }, []);
+  }, [data, error]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -92,20 +56,14 @@ const NavigationBar = () => {
   };
   const handleLogoutClick = async () => {
     try {
-      const response = await axios.post(
-        `${urlApi}/auth/logout`,
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-      localStorage.removeItem("authToken");
+      const response = await axiosInstance.post("/logout", {
+        withCredentials: true,
+      });
       if (response.status === 200) {
-        setLoggedInStatus(false);
         alert("Successfully logged out!");
         window.location.reload();
+        logoutFunction();
       } else {
-        setLoggedInStatus(true);
         alert("Logout failed");
       }
     } catch (error) {
@@ -143,7 +101,7 @@ const NavigationBar = () => {
               </li>
               <li>
                 <Link
-                  to="/public/partInterior"
+                  to="/public/part-interior"
                   className="navMenu"
                   onMouseEnter={() => handleMouseEnter("interior")}
                   onMouseLeave={() => handleMouseLeave("interior")}
@@ -204,31 +162,11 @@ const NavigationBar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/public/cleaning" className="navMenu">
+                <Link to="/public/estimate/clean" className="navMenu">
                   청소
                 </Link>
-                {/* <div className={
-                subNavVisibility.cleaning
-                  ? 'dropdown-content active'
-                  : 'dropdown-content'}>
-              <ul>
-                <li><Link to="/sub/building">집청소</Link></li>
-                <li><Link to="/sub/building">건물</Link></li>
-                <li><Link to="/sub/aircondition">에어컨</Link></li>
-              </ul>
-            </div> */}
               </li>
-
-              {/* <hr className="herrgui" /> */}
-              {/* <li>
-              <div className="search">
-                <input type="text"placeholder="Search"value={searchValue}onChange={handleSearch}/>
-                <div className="symbol">
-                  <FontAwesomeIcon icon={faSearch} className="faIcon" />
-                </div>
-                </div>
-            </li>  */}
-              {loggedInStatus === true ? (
+              {LoginStatus ? (
                 <li>
                   <div className="LoginContainer">
                     <Link
