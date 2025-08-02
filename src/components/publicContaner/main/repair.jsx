@@ -5,7 +5,7 @@ import Artic from "../article";
 import Footer from "../footer";
 import { publicPath } from "../../../App";
 
-const Repair = () => {
+const RepairContainer = () => {
   return (
     <>
       <NavigationBar />
@@ -25,7 +25,7 @@ const Repair = () => {
               </Link>
             </div>
             <div className="zurags">
-              <Link to="/public/estimate/bathroom" className="image-link">
+              <Link to="/public/estimate/bath_room" className="image-link">
                 <img src={publicPath("Photo/욕실.jpg")} alt="" />
                 <p>욕실</p>
               </Link>
@@ -38,4 +38,4 @@ const Repair = () => {
     </>
   );
 };
-export default Repair;
+export default RepairContainer;

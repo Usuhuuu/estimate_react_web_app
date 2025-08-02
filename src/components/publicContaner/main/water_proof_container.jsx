@@ -8,7 +8,7 @@ import Footer from "../footer";
 import { publicPath } from "../../../App";
 
 const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
-const CheckWaterproof = () => {
+const WaterProofContainer = () => {
   return (
     <>
       <NavigationBar />
@@ -16,7 +16,7 @@ const CheckWaterproof = () => {
         <div className="imageContainers">
           <div className="imageChange">
             <div className="imagesss">
-              <Link to="/public/estimate/waterproof" className="image-link">
+              <Link to="/public/estimate/water_proof" className="image-link">
                 <img src={publicPath("Photo/waterproof.jpg")} alt="" />
                 <p>방수</p>
               </Link>
@@ -35,4 +35,4 @@ const CheckWaterproof = () => {
     </>
   );
 };
-export default CheckWaterproof;
+export default WaterProofContainer;

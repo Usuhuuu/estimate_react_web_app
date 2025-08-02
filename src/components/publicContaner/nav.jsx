@@ -1,4 +1,3 @@
-import "../CSS/style.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -8,11 +7,9 @@ import { publicPath } from "../../App";
 import { auth_useSWR } from "../../hooks/use_swr_instance";
 import { useAuth } from "../../context/authContext";
 import { axiosInstance } from "../../hooks/axiosInstance";
-
-const urlApi = "https://hiwoorizip-ff4cfc190fb7.herokuapp.com";
+import "../CSS/style.css";
 
 const NavigationBar = () => {
-  const [loggedInStatus, setLoggedInStatus] = useState();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [subNavVisibility, setSubNavVisibility] = useState({
     interior: false,
@@ -20,7 +17,6 @@ const NavigationBar = () => {
     cleaning: false,
     waterproof: false,
   });
-  const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { LoginStatus, logoutFunction } = useAuth();
@@ -32,7 +28,6 @@ const NavigationBar = () => {
 
   useEffect(() => {
     if (data) {
-      setDashboardData(data);
       setLoading(false);
     } else if (error) {
       setLoading(false);
@@ -72,7 +67,7 @@ const NavigationBar = () => {
     }
   };
   return (
-    <>
+    <div className="navBar">
       {loading ? (
         <div className="loadingOverlay">
           <p style={{ padding: 15, font: 15 }}>잠시만 기다려 주세요</p>
@@ -86,7 +81,12 @@ const NavigationBar = () => {
           />
         </div>
       ) : (
-        <nav>
+        <nav
+          style={{
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
           <button className="Logobutton">
             <Link to="/">
               <img src={publicPath("logo2.png")} alt="Logo" />
@@ -95,7 +95,7 @@ const NavigationBar = () => {
           <div className={`navContainer ${isMenuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <Link to="/public/interior" className="navMenu">
+                <Link to="/public/estimate/interior" className="navMenu">
                   종합인테리어
                 </Link>
               </li>
@@ -157,7 +157,7 @@ const NavigationBar = () => {
                 </div>
               </li>
               <li>
-                <Link to="/public/checkwaterproof" className="navMenu">
+                <Link to="/public/water" className="navMenu">
                   누수/방수
                 </Link>
               </li>
@@ -217,7 +217,7 @@ const NavigationBar = () => {
           <hr />
         </nav>
       )}
-    </>
+    </div>
   );
 };
 export default NavigationBar;

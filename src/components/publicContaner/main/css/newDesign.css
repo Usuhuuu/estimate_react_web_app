@@ -2,12 +2,14 @@
     background-color: #fff;
     width: 100%;
     height: 100%;
+    padding-top: 10px;
 }
 .imageContainer{
     width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
+    padding-top:10px;
 }
 .imageContainer p{
     position: relative;

@@ -6,7 +6,7 @@ import AuthContainer from "./components/AuthContainer/authContainer";
 import NotFound from "./components/notfound";
 import AdminContainer from "./components/auth/userAndAdminContainer";
 import PublicContainer from "./components/publicContaner/publicContainer";
-import "./components/CSS/style.css";
+import "./app.css";
 
 export const publicPath = (filePath) =>
   `${import.meta.env.BASE_URL}${filePath}`;

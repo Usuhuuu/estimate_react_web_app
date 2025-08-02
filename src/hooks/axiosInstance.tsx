@@ -26,16 +26,18 @@ export const axiosRegularInstance = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-  withCredentials: true,
+  withCredentials: false,
   timeout: 10000,
 });
 
 axiosInstance.interceptors.request.use(
   (config) => {
+    console.log("Request", config);
     return config;
   },
   (error) => Promise.reject(error)
 );
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -48,7 +50,7 @@ axiosInstance.interceptors.response.use(
     ) {
       originalRequest._retry = true;
       try {
-        originalRequest = await axiosRegularInstance.post(
+        originalRequest = await axiosInstance.post(
           "/refresh",
           {},
           { withCredentials: true }

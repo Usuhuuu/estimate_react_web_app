@@ -1,39 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
 hr{
     border-top: 1px solid rgba(200, 200, 200, 0.5);
 }
-*{
-    margin: 0;
-}      
+    
 body {
     background-color: #f8f8f8;
     font-family: Arial, sans-serif;
 }
-nav{
-    display: inline-flex;
-    background: rgb(255, 255, 255);
-    text-align: center;
+.navBar{
+   display: inline-flex;
+    background: white;
     top: 0; 
     z-index: 1;
     position: sticky;
-    height: auto;   
+    height: 100%;   
     width: 100%;
+}
+nav{
+    display: inline-flex;
+    background: white;
+    top: 0; 
+    z-index: 1;
+    position: sticky;
+    height: 100%;   
+    width: 100%;
+    
 }
 nav button{
     position: relative;
     float: left;
-    background: #ffffff;    
     background: cover;
-    border: none;
     align-items: center;
 }
 nav img{
     width: 80px;
     height: 80px;
-    background-color: #ffffff; /* Set the background color to match the button */
-    border-radius: 5px;
 }
 
 .menu-toggle {
@@ -255,12 +257,16 @@ nav img{
     display: inline;
     width: 100%;
     align-items: center;
+    justify-content: center;
 }
 .navContainer.active {
     width: 100%; 
 }
 .navContainer ul{
     list-style-type: none;
+}
+.navContainer li {
+    justify-content: center;
 }
 .LoginContainer {
     position: relative;
@@ -433,7 +439,7 @@ section{
     color: #fff;
     background-color: #fff;
     border: none;
-    height: 95%;
+    height: 100%;
 }
 .PhotoSlider{
     display: flex;
